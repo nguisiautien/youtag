@@ -36,7 +36,7 @@ import vim
 
 theline = vim.eval( 'getline(".")' ).split(":")
 print(theline)
-vim.command( 'e ' + theline[1].strip() )
+vim.command( 'vsp ' + theline[1].strip() )
 vim.command( '/' + theline[2].strip() )
 EOF
 endfunction

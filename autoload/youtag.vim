@@ -22,26 +22,22 @@ function! s:Pyeval( eval_string )
 endfunction
 
 
-function! Youtag()
+function! Youtag(opencmd)
 exec s:python_until_eof
-from __future__ import unicode_literals
-from __future__ import print_function
-from __future__ import division
-from __future__ import absolute_import
 
-import os.path as p
-import sys
-import traceback
 import vim
 
 theline = vim.eval( 'getline(".")' ).split(":")
-print(theline)
-vim.command( 'vsp ' + theline[1].strip() )
+opencmd = vim.eval( 'a:opencmd' )
+
+vim.command( opencmd + ' ' + theline[1].strip() )
 vim.command( '/' + theline[2].strip() )
+
 EOF
 endfunction
 
-nnoremap <leader>f :call Youtag()<CR> 
+nnoremap <leader>f :call Youtag("e")<CR> 
+nnoremap <leader>vf :call Youtag("vsp")<CR> 
 
 " This is basic vim plugin boilerplate
 let &cpo = s:save_cpo

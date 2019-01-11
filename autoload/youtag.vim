@@ -1,3 +1,7 @@
+" This is basic vim plugin boilerplate
+let s:save_cpo = &cpo
+set cpo&vim
+
 function! s:UsingPython3()
   if has('python3')
     return 1
@@ -39,3 +43,6 @@ endfunction
 
 nnoremap <leader>f :call Youtag()<CR> 
 
+" This is basic vim plugin boilerplate
+let &cpo = s:save_cpo
+unlet s:save_cpo

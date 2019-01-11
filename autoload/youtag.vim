@@ -32,7 +32,7 @@ opencmd = vim.eval( 'a:opencmd' )
 
 vim.command( opencmd + ' ' + theline[1].strip() )
 vim.command( '0' )
-#vim.command( '/' + theline[2].strip() )
+vim.command( '/' + theline[2].strip() )
 
 EOF
 endfunction
